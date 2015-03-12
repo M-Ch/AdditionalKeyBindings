@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdditionalKeyBindings", "AdditionalKeyBindings\AdditionalKeyBindings.csproj", "{CC3A95C5-B3EF-494A-AA0C-09A9D15E9DAD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC3A95C5-B3EF-494A-AA0C-09A9D15E9DAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC3A95C5-B3EF-494A-AA0C-09A9D15E9DAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC3A95C5-B3EF-494A-AA0C-09A9D15E9DAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC3A95C5-B3EF-494A-AA0C-09A9D15E9DAD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

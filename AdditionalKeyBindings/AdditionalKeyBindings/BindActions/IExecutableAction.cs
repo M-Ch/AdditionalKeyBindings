@@ -1,8 +1,7 @@
-﻿using System;
-
-namespace AdditionalKeyBindings.BindActions
+﻿namespace AdditionalKeyBindings.BindActions
 {
 	public interface IExecutableAction : IActionDescription
 	{
+		void Execute();
 	}
 }

@@ -61,6 +61,7 @@
     <Compile Include="KeyListener.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="KeyBindingMenuInitializer.cs" />
+    <Compile Include="Net4.cs" />
     <Compile Include="OptionsPanelAccess.cs" />
     <Compile Include="OptionsPanelExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

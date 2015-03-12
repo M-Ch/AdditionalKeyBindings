@@ -1,5 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using AdditionalKeyBindings.BindActions;
+using ColossalFramework;
+using UnityEngine;
 
 namespace AdditionalKeyBindings
 {
@@ -7,6 +11,7 @@ namespace AdditionalKeyBindings
 	{
 		private readonly IExecutableAction[] _actions;
 		private readonly ResettableBehavior<KeyListener> _listener;
+		private readonly List<Tuple<IExecutableAction, SavedInputKey>> _keyBinds;
 
 		public KeyBindingMod()
 		{
@@ -18,6 +23,10 @@ namespace AdditionalKeyBindings
 				new RoadToolAction(NetTool.Mode.Freeform),
 				new RoadToolAction(NetTool.Mode.Upgrade),
 			};
+
+			_keyBinds = _actions
+				.Select(i => Tuple.Create(i, new SavedInputKey(i.Command, Settings.gameSettingsFile, (int)KeyCode.None, true)))
+				.ToList();
 		}
 
 		public IEnumerable<IActionDescription> ActionDescriptions { get { return _actions; } }
@@ -33,9 +42,11 @@ namespace AdditionalKeyBindings
 			_listener.Reset();
 		}
 
-		private static void OnKeyEvent(object sender, KeyEventArgs e)
+		private void OnKeyEvent(object sender, KeyEventArgs e)
 		{
-			DebugUtil.WriteLine("Something was pressed");
+			var action = _keyBinds.FirstOrDefault(i => i.Item2.IsPressed(e.EventType, e.KeyCode, e.Modifiers));
+			if (action != null)
+				action.Item1.Execute();
 		}
 	}
 }

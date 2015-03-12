@@ -4,6 +4,11 @@ namespace AdditionalKeyBindings
 {
 	public class KeyBindingMod
 	{
-		public IEnumerable<BindingDescription> BindingNames { get; private set; }
+		public KeyBindingMod()
+		{
+			ActionDescriptions = new[] {new ActionDescription(ActionCategory.Game)};
+		}
+
+		public IEnumerable<ActionDescription> ActionDescriptions { get; private set; }
 	}
 }

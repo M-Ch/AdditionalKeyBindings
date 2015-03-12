@@ -10,7 +10,9 @@ namespace AdditionalKeyBindings
 			//we can use this place to call a one time initialization code
 			var optionsPanel = UiUtil.GetUiElementLogged<OptionsPanel>(GameUiParts.OptionsPanel);
 			if (optionsPanel != null)
-				new MenuInitializer().Initialize(optionsPanel, new KeyBindingMod().BindingNames);
+				Try.Execute(() => new KeyBindingMenuInitializer().Initialize(optionsPanel, new KeyBindingMod().ActionDescriptions));
+
+			DebugUtil.WriteLine("AdditionalKeyBindings: initialized.");
 		}
 
 		public string Name

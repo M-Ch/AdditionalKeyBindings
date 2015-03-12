@@ -47,7 +47,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Annotations.cs" />
+    <Compile Include="BindingDescription.cs" />
+    <Compile Include="DebugUtil.cs" />
+    <Compile Include="GameUiParts.cs" />
+    <Compile Include="KeyBindingMod.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="MenuInitializer.cs" />
+    <Compile Include="OptionsPanelAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UiUtil.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

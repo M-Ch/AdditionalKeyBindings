@@ -1,0 +1,2 @@
+Copy dll files from your Cities:Skylines installation directory.
+It should be something like: Steam\steamapps\common\Cities_Skylines\Cities_Data\Managed\

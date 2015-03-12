@@ -187,3 +187,11 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+
+#C:S dll's
+Assembly-CSharp.dll
+ColossalManaged.dll
+ICities.dll
+ICSharpCode.SharpZipLib.dll
+UnityEngine.dll
+UnityEngine.UI.dll

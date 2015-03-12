@@ -12,11 +12,15 @@ namespace AdditionalKeyBindings
 			//IUserMod.Enable() - called when mod is turned on or right after game start if it is already enabled
 			//IUserMod.Disable() - called when mod is uninstalled/ turned off/ deleted
 
+			SetupMainMenu();
+			DebugUtil.WriteLine("AdditionalKeyBindings: initialized.");
+		}
+
+		public static void SetupMainMenu()
+		{
 			var optionsPanel = UiUtil.GetUiElementLogged<OptionsPanel>(GameUiParts.OptionsPanel);
 			if (optionsPanel != null)
 				Try.Execute(() => new KeyBindingMenuInitializer().AddKeyBindings(optionsPanel, new KeyBindingMod().ActionDescriptions));
-
-			DebugUtil.WriteLine("AdditionalKeyBindings: initialized.");
 		}
 
 		public string Name
@@ -44,6 +48,8 @@ namespace AdditionalKeyBindings
 
 		public void OnLevelLoaded(LoadMode mode)
 		{
+			//it looks like OptionsPanel instance from main menu screen is different than one from game screen.
+			ModEntryPoint.SetupMainMenu();
 			_mod.Start();
 		}
 

@@ -8,9 +8,13 @@ namespace AdditionalKeyBindings
 		{
 			//hack: It seems like the game is only creating one instance this class.
 			//we can use this place to call a one time initialization code
+			//it would be nice to have something like this in ICities API:
+			//IUserMod.Enable() - called when mod is turned on or right after game start if it is already enabled
+			//IUserMod.Disable() - called when mod is uninstalled/ turned off/ deleted
+
 			var optionsPanel = UiUtil.GetUiElementLogged<OptionsPanel>(GameUiParts.OptionsPanel);
 			if (optionsPanel != null)
-				Try.Execute(() => new KeyBindingMenuInitializer().Initialize(optionsPanel, new KeyBindingMod().ActionDescriptions));
+				Try.Execute(() => new KeyBindingMenuInitializer().AddKeyBindings(optionsPanel, new KeyBindingMod().ActionDescriptions));
 
 			DebugUtil.WriteLine("AdditionalKeyBindings: initialized.");
 		}

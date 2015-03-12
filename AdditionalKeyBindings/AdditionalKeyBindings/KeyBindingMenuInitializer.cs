@@ -6,7 +6,7 @@ namespace AdditionalKeyBindings
 {
 	public class KeyBindingMenuInitializer
 	{
-		public void Initialize([NotNull]OptionsPanel optionsPanel, IEnumerable<IActionDescription> actions)
+		public void AddKeyBindings([NotNull]OptionsPanel optionsPanel, IEnumerable<IActionDescription> actions)
 		{
 			var keyBindingMenu = new KeyBindingMenu(optionsPanel);
 

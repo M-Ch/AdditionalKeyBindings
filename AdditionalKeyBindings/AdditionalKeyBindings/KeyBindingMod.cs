@@ -1,14 +1,23 @@
 ﻿using System.Collections.Generic;
+using AdditionalKeyBindings.BindActions;
 
 namespace AdditionalKeyBindings
 {
 	public class KeyBindingMod
 	{
+		private readonly IExecutableAction[] _actions;
+
 		public KeyBindingMod()
 		{
-			ActionDescriptions = new[] {new ActionDescription(ActionCategory.Game)};
+			_actions = new IExecutableAction[]
+			{
+				new RoadToolAction(NetTool.Mode.Straight),
+				new RoadToolAction(NetTool.Mode.Curved),
+				new RoadToolAction(NetTool.Mode.Freeform),
+				new RoadToolAction(NetTool.Mode.Upgrade),
+			};
 		}
 
-		public IEnumerable<ActionDescription> ActionDescriptions { get; private set; }
+		public IEnumerable<IActionDescription> ActionDescriptions { get { return _actions; } }
 	}
 }

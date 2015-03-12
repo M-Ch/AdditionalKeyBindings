@@ -49,7 +49,10 @@
   <ItemGroup>
     <Compile Include="ActionCategory.cs" />
     <Compile Include="Annotations.cs" />
-    <Compile Include="ActionDescription.cs" />
+    <Compile Include="BindActions\IActionDescription.cs" />
+    <Compile Include="BindActions\IExecutableAction.cs" />
+    <Compile Include="BindActions\RoadToolAction.cs" />
+    <Compile Include="CollectionExtensions.cs" />
     <Compile Include="DebugUtil.cs" />
     <Compile Include="GameUiParts.cs" />
     <Compile Include="KeyBindingDescription.cs" />

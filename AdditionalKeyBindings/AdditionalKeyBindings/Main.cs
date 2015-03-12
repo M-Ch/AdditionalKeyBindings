@@ -32,6 +32,8 @@ namespace AdditionalKeyBindings
 
 	public class LoadingPoint : ILoadingExtension
 	{
+		private readonly KeyBindingMod _mod = new KeyBindingMod();
+
 		public void OnCreated(ILoading loading)
 		{
 		}
@@ -42,10 +44,12 @@ namespace AdditionalKeyBindings
 
 		public void OnLevelLoaded(LoadMode mode)
 		{
+			_mod.Start();
 		}
 
 		public void OnLevelUnloading()
 		{
+			_mod.End();
 		}
 	}
 }

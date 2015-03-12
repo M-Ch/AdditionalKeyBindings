@@ -58,12 +58,15 @@
     <Compile Include="KeyBindingDescription.cs" />
     <Compile Include="KeyBindingMenu.cs" />
     <Compile Include="KeyBindingMod.cs" />
+    <Compile Include="KeyListener.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="KeyBindingMenuInitializer.cs" />
     <Compile Include="OptionsPanelAccess.cs" />
     <Compile Include="OptionsPanelExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReflectionUtils.cs" />
+    <Compile Include="Resettable.cs" />
+    <Compile Include="ResettableBehavior.cs" />
     <Compile Include="Try.cs" />
     <Compile Include="UiUtil.cs" />
   </ItemGroup>

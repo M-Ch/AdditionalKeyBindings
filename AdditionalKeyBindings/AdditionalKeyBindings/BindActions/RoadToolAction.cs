@@ -11,7 +11,7 @@ namespace AdditionalKeyBindings.BindActions
 			_mode = mode;
 		}
 
-		public ActionCategory Category { get { return ActionCategory.Game; } }
+		public ActionCategory Category { get { return ActionCategory.Shared; } }
 
 		public string DisplayName { get { return String.Format("Road tool mode: {0}", _mode); } }
 		public string Command { get { return String.Format("AKB-RoadTool{0}", _mode); } }

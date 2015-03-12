@@ -18,7 +18,6 @@ namespace AdditionalKeyBindings
 		private void AddActionsToCategory(KeyBindingMenu keyBindingMenu, ActionCategory category, IEnumerable<IActionDescription> actions)
 		{
 			var values = keyBindingMenu.GetCurrentCategoryContent(category).ToList();
-			DebugUtil.WriteList(values, i => i.CommandName);
 
 			var actualValues = values.Select(i => i.CommandName).Distinct().ToHashSet();
 			foreach (var action in actions.Where(i => !actualValues.Contains(i.Command)))

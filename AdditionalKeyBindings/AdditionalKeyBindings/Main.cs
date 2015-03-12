@@ -30,7 +30,7 @@ namespace AdditionalKeyBindings
 
 		public string Description 
 		{
-			get { return "Set key shortcuts for additional commands through game options menu."; }
+			get { return "Set key shortcuts for additional commands using options menu."; }
 		}
 	}
 

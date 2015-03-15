@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Linq;
-using ColossalFramework.UI;
-using Object = UnityEngine.Object;
 
 namespace AdditionalKeyBindings.BindActions
 {
@@ -21,9 +18,7 @@ namespace AdditionalKeyBindings.BindActions
 
 		public void Execute()
 		{
-			var toolStrip = Object.FindObjectsOfType<UITabstrip>().FirstOrDefault(i => i.name == "ToolMode");
-			if (toolStrip != null && toolStrip.isVisible)
-				toolStrip.selectedIndex = (int) _mode;
+			RoadToolStrip.ToolMode = _mode;
 		}
 	}
 }

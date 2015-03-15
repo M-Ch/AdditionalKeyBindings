@@ -52,6 +52,8 @@
     <Compile Include="BindActions\IActionDescription.cs" />
     <Compile Include="BindActions\IExecutableAction.cs" />
     <Compile Include="BindActions\RoadToolAction.cs" />
+    <Compile Include="BindActions\RoadToolStrip.cs" />
+    <Compile Include="BindActions\RoadToolCycleAction.cs" />
     <Compile Include="CollectionExtensions.cs" />
     <Compile Include="DebugUtil.cs" />
     <Compile Include="GameUiParts.cs" />
@@ -61,6 +63,7 @@
     <Compile Include="KeyListener.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="KeyBindingMenuInitializer.cs" />
+    <Compile Include="MathUtils.cs" />
     <Compile Include="Net4.cs" />
     <Compile Include="OptionsPanelExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

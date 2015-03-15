@@ -47,8 +47,10 @@ namespace AdditionalKeyBindings
 		private void OnKeyEvent(object sender, KeyEventArgs e)
 		{
 			var action = _keyBinds.FirstOrDefault(i => i.Item2.IsPressed(e.EventType, e.KeyCode, e.Modifiers));
-			if (action != null)
-				action.Item1.Execute();
+			if (action == null) return;
+
+			DebugUtil.WriteLine("Action to run: {0}", action.Item1.DisplayName);
+			action.Item1.Execute();
 		}
 	}
 }

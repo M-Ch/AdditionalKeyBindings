@@ -22,7 +22,8 @@ namespace AdditionalKeyBindings
 				new RoadToolAction(NetTool.Mode.Curved),
 				new RoadToolAction(NetTool.Mode.Freeform),
 				new RoadToolAction(NetTool.Mode.Upgrade),
-				new RoadToolCycleAction()
+				new RoadToolCycleAction(),
+				new RoadToolSnapAction()
 			};
 
 			_keyBinds = _actions

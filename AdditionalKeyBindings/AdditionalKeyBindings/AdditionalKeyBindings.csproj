@@ -52,6 +52,7 @@
     <Compile Include="BindActions\IActionDescription.cs" />
     <Compile Include="BindActions\IExecutableAction.cs" />
     <Compile Include="BindActions\RoadToolAction.cs" />
+    <Compile Include="BindActions\RoadToolSnapAction.cs" />
     <Compile Include="BindActions\RoadToolStrip.cs" />
     <Compile Include="BindActions\RoadToolCycleAction.cs" />
     <Compile Include="CollectionExtensions.cs" />

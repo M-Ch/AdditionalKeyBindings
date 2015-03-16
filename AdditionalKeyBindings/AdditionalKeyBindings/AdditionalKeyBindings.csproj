@@ -49,12 +49,15 @@
   <ItemGroup>
     <Compile Include="ActionCategory.cs" />
     <Compile Include="Annotations.cs" />
+    <Compile Include="BindActions\CycleDirection.cs" />
+    <Compile Include="BindActions\CyclePrefabAction.cs" />
     <Compile Include="BindActions\IActionDescription.cs" />
     <Compile Include="BindActions\IExecutableAction.cs" />
     <Compile Include="BindActions\RoadToolAction.cs" />
     <Compile Include="BindActions\RoadToolSnapAction.cs" />
     <Compile Include="BindActions\RoadToolStrip.cs" />
     <Compile Include="BindActions\RoadToolCycleAction.cs" />
+    <Compile Include="BindActions\SelectPrefabAction.cs" />
     <Compile Include="CollectionExtensions.cs" />
     <Compile Include="DebugUtil.cs" />
     <Compile Include="GameUiParts.cs" />
@@ -64,6 +67,7 @@
     <Compile Include="KeyListener.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="KeyBindingMenuInitializer.cs" />
+    <Compile Include="MainToolbar.cs" />
     <Compile Include="MathUtils.cs" />
     <Compile Include="Net4.cs" />
     <Compile Include="OptionsPanelExtensions.cs" />
@@ -71,7 +75,9 @@
     <Compile Include="ReflectionUtils.cs" />
     <Compile Include="Resettable.cs" />
     <Compile Include="ResettableBehavior.cs" />
+    <Compile Include="ToolbarActivePanel.cs" />
     <Compile Include="Try.cs" />
+    <Compile Include="UiTabStripExtensions.cs" />
     <Compile Include="UiUtil.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

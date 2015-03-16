@@ -7,6 +7,11 @@ namespace AdditionalKeyBindings
 	{
 		public event EventHandler<KeyEventArgs> KeyEvent;
 
+		public KeyListener()
+		{
+			DebugUtil.WriteLine("KeyListener created");
+		}
+
 		[UsedImplicitly]
 		private void OnGUI()
 		{

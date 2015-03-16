@@ -23,7 +23,16 @@ namespace AdditionalKeyBindings
 				new RoadToolAction(NetTool.Mode.Freeform),
 				new RoadToolAction(NetTool.Mode.Upgrade),
 				new RoadToolCycleAction(),
-				new RoadToolSnapAction()
+				new RoadToolSnapAction(),
+				new CyclePrefabAction(CycleDirection.Up),
+				new CyclePrefabAction(CycleDirection.Down),
+				new SelectPrefabAction(0),
+				new SelectPrefabAction(1),
+				new SelectPrefabAction(2),
+				new SelectPrefabAction(3),
+				new SelectPrefabAction(4),
+				new SelectPrefabAction(5),
+				new SelectPrefabAction(6)
 			};
 
 			_keyBinds = _actions
@@ -35,17 +44,26 @@ namespace AdditionalKeyBindings
 
 		public void Start()
 		{
-			_listener.Behavior.KeyEvent += OnKeyEvent;
+			DebugUtil.WriteLine("AdditionalKeyBindigs: Start");
+			Try.Execute(() =>
+			{
+				var behavior = _listener.Behavior;
+				DebugUtil.CheckReference("behavior", behavior);
+				if(behavior != null)
+					behavior.KeyEvent += OnKeyEvent;
+			});
 		}
 
 		public void End()
 		{
 			_listener.Behavior.KeyEvent -= OnKeyEvent;
 			_listener.Reset();
+			DebugUtil.WriteLine("AdditionalKeyBindigs: End");
 		}
 
 		private void OnKeyEvent(object sender, KeyEventArgs e)
 		{
+			DebugUtil.WriteLine("Key event handler called");
 			var action = _keyBinds.FirstOrDefault(i => i.Item2.IsPressed(e.EventType, e.KeyCode, e.Modifiers));
 			if (action == null) return;
 

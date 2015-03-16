@@ -14,9 +14,17 @@ namespace AdditionalKeyBindings
 		}
 
 		[Conditional("DEBUG")]
+		public static void WriteObject(object value)
+		{
+			DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, value != null ? value.ToString() : "null");
+		}
+
+		[Conditional("DEBUG")]
 		public static void CheckReference(string referenceName, object value)
 		{
-			WriteLine(String.Format("{0} is {1}", referenceName, value != null ? "not null" : "null"));
+			WriteLine(value != null 
+				? String.Format("{0} type is {1}", referenceName, value.GetType().Name)
+				: String.Format("{0} is null", referenceName));
 		}
 
 		[Conditional("DEBUG")]

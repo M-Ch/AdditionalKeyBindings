@@ -8,7 +8,7 @@ namespace AdditionalKeyBindings.BindActions
 	{
 		private static UITabstrip GetToolStrip()
 		{
-			return Object.FindObjectsOfType<UITabstrip>().FirstOrDefault(i => i.name == "ToolMode");
+			return Object.FindObjectsOfType<UITabstrip>().FirstOrDefault(i => i.name == "ToolMode" && i.isVisible);
 		}
 
 		public static NetTool.Mode ToolMode 

@@ -13,7 +13,7 @@ namespace AdditionalKeyBindings.BindActions
 
 		public void Execute()
 		{
-			var snapping =Object.FindObjectsOfType<UIMultiStateButton>().FirstOrDefault(i => i.name == "SnappingToggle");
+			var snapping = Object.FindObjectsOfType<UIMultiStateButton>().FirstOrDefault(i => i.name == "SnappingToggle" && i.isVisible);
 			if (snapping != null)
 				snapping.activeStateIndex = snapping.activeStateIndex.CycleIncrement(0, 1);
 		}

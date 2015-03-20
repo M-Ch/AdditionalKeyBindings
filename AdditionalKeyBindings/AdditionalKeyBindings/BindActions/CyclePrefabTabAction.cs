@@ -2,7 +2,7 @@
 
 namespace AdditionalKeyBindings.BindActions
 {
-	public class CyclePrefabTabAction : IExecutableAction
+	public class CyclePrefabTabAction : IExecutableAction, IActionDescription
 	{
 		private readonly CycleDirection _direction;
 

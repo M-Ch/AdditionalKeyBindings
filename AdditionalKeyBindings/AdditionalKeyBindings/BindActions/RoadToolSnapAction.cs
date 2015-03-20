@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace AdditionalKeyBindings.BindActions
 {
-	public class RoadToolSnapAction : IExecutableAction
+	public class RoadToolSnapAction : IExecutableAction, IActionDescription
 	{
 		public ActionCategory Category { get { return ActionCategory.Shared; } }
 

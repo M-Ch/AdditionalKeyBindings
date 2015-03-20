@@ -2,7 +2,7 @@
 
 namespace AdditionalKeyBindings.BindActions
 {
-	public class SelectPrefabAction : IExecutableAction
+	public class SelectPrefabAction : IExecutableAction, IActionDescription
 	{
 		private readonly int _slot;
 

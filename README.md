@@ -3,12 +3,14 @@
 ### Information
 
 You can configure additional key shortcuts for in game actions using this mod.
-Currently you can:
-* Assign shortucts for active road tool mode (straight roads, curved, freeform and upgrade)
-* Assign shortcuts for cycling through all road tool modes 
-* Assign Shortcut for toggle snapping. 
-* Set shortcuts for buildings/ road elements by slot number. 
-* Can cycle up and down through list of unlocked buildings in each tool menu.
+Currently you can assign shortcuts for these actions:
+* Select road tool mode (straight roads, curved, freeform and upgrade).
+* Cycle through all road tool modes.
+* Toggle snapping for rod tool.
+* Select buildng/ road element by slot.
+* Cycle up and down through list of unlocked buildings in each tool menu.
+* Select zoning tool mode (fill, mark, small brush, large brush).
+* Cycle through zoning tool modes.
 
 ### Usage
 

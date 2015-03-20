@@ -54,13 +54,17 @@
     <Compile Include="BindActions\CyclePrefabTabAction.cs" />
     <Compile Include="BindActions\IActionDescription.cs" />
     <Compile Include="BindActions\IExecutableAction.cs" />
+    <Compile Include="BindActions\PanelValueCyclingAction.cs" />
     <Compile Include="BindActions\RoadToolAction.cs" />
     <Compile Include="BindActions\RoadToolSnapAction.cs" />
-    <Compile Include="BindActions\RoadToolStrip.cs" />
     <Compile Include="BindActions\RoadToolCycleAction.cs" />
     <Compile Include="BindActions\SelectPrefabAction.cs" />
+    <Compile Include="BindActions\PanelValueSettingAction.cs" />
+    <Compile Include="BindActions\ZoneToolAction.cs" />
+    <Compile Include="BindActions\ZoneToolCycleAction.cs" />
     <Compile Include="CollectionExtensions.cs" />
     <Compile Include="DebugUtil.cs" />
+    <Compile Include="ExecutableActionWithDescription.cs" />
     <Compile Include="GameUiParts.cs" />
     <Compile Include="KeyBindingDescription.cs" />
     <Compile Include="KeyBindingMenu.cs" />
@@ -80,6 +84,8 @@
     <Compile Include="Try.cs" />
     <Compile Include="UiTabStripExtensions.cs" />
     <Compile Include="UiUtil.cs" />
+    <Compile Include="ToolStripWrapper.cs" />
+    <Compile Include="ZoneToolMode.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

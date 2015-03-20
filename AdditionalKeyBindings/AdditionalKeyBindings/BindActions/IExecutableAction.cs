@@ -1,6 +1,6 @@
 ﻿namespace AdditionalKeyBindings.BindActions
 {
-	public interface IExecutableAction : IActionDescription
+	public interface IExecutableAction
 	{
 		void Execute();
 	}

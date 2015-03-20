@@ -51,6 +51,7 @@
     <Compile Include="Annotations.cs" />
     <Compile Include="BindActions\CycleDirection.cs" />
     <Compile Include="BindActions\CyclePrefabAction.cs" />
+    <Compile Include="BindActions\CyclePrefabTabAction.cs" />
     <Compile Include="BindActions\IActionDescription.cs" />
     <Compile Include="BindActions\IExecutableAction.cs" />
     <Compile Include="BindActions\RoadToolAction.cs" />

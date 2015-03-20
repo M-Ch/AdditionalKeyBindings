@@ -9,11 +9,13 @@ namespace AdditionalKeyBindings
 	{
 		private readonly string _panelName;
 		private readonly UITabstrip _groupTabs;
+		private readonly List<UIButton> _groupTabsButtons;
 
 		public ToolbarActivePanel(string panelName, UITabstrip parentTabStrip)
 		{
 			_panelName = panelName;
 			_groupTabs = FindGroupTabs(parentTabStrip);
+			_groupTabsButtons = _groupTabs.components.OfType<UIButton>().ToList();
 		}
 
 		private UITabstrip FindGroupTabs(UITabstrip parentTabStrip)
@@ -23,6 +25,17 @@ namespace AdditionalKeyBindings
 			var groupPanel = (GeneratedGroupPanel) parentTabStrip.GetComponentInContainer(button, type);
 
 			return ReflectionUtils.GetPrivateFieldValue<UITabstrip>(groupPanel, "m_Strip");
+		}
+
+		public int TabCount
+		{
+			get { return _groupTabsButtons.Count; }
+		}
+
+		public int SelectedTabIndex
+		{
+			get { return _groupTabsButtons.FindIndex(i => i.state == UIButton.ButtonState.Focused); }
+			set { _groupTabsButtons[MathUtils.Clamp(value, 0, _groupTabsButtons.Count-1)].SimulateClick(); }
 		}
 
 		[CanBeNull]

@@ -24,6 +24,8 @@ namespace AdditionalKeyBindings
 				new RoadToolAction(NetTool.Mode.Upgrade),
 				new RoadToolCycleAction(),
 				new RoadToolSnapAction(),
+				new CyclePrefabTabAction(CycleDirection.Up),
+				new CyclePrefabTabAction(CycleDirection.Down),
 				new CyclePrefabAction(CycleDirection.Up),
 				new CyclePrefabAction(CycleDirection.Down),
 				new SelectPrefabAction(0),

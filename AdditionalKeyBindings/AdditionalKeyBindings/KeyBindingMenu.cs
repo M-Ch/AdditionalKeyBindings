@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using AdditionalKeyBindings.BindActions;
 using ColossalFramework;
 using ColossalFramework.UI;
@@ -11,7 +12,7 @@ namespace AdditionalKeyBindings
 {
 	public class KeyBindingMenu
 	{
-		private readonly OptionsPanel _optionsPanel;
+		private readonly OptionsKeymappingPanel _optionsPanel;
 
 		private static readonly Dictionary<ActionCategory, string> CategoryToFieldName = new Dictionary<ActionCategory, string>
 		{
@@ -29,7 +30,7 @@ namespace AdditionalKeyBindings
 			{ ActionCategory.AssetsEditor, "Decoration" },
 		};
 
-		public KeyBindingMenu([NotNull] OptionsPanel optionsPanel)
+		public KeyBindingMenu([NotNull] OptionsKeymappingPanel optionsPanel)
 		{
 			_optionsPanel = optionsPanel;
 		}
@@ -37,7 +38,8 @@ namespace AdditionalKeyBindings
 		public IEnumerable<KeyBindingDescription> GetCurrentCategoryContent(ActionCategory key)
 		{
 			var panel = GetPanelForCategory(key);
-			return panel.components.Select(ItemToDescription);
+			DebugUtil.CheckNotNull(panel, $"Panel for key {key} is null");
+            return panel.components.Select(ItemToDescription);
 		}
 
 		private UIScrollablePanel GetPanelForCategory(ActionCategory key)
@@ -49,18 +51,18 @@ namespace AdditionalKeyBindings
 		public void AddCommand(IActionDescription action)
 		{
 			var panel = GetPanelForCategory(action.Category);
-			var item = panel.AttachUIComponent(Object.Instantiate(_optionsPanel.m_KeyMappingTemplate));
+			var item = panel.AttachUIComponent(UITemplateManager.GetAsGameObject("KeyBindingTemplate"));
 			FillItemFromDescription(item, action);
 		}
 
 		private void FillItemFromDescription(UIComponent item, IActionDescription description)
 		{
 			var nameLabel = item.Find<UILabel>("Name");
-			var bindingLabel = item.Find<UILabel>("Binding");
+			var bindingLabel = item.Find<UITextComponent>("Binding");
 			var input = new SavedInputKey(description.Command, Settings.gameSettingsFile, (int)KeyCode.None, true);
 
-			bindingLabel.eventKeyDown += _optionsPanel.OnBindingKeyDown;
-			bindingLabel.eventMouseDown += _optionsPanel.OnBindingMouseDown;
+			bindingLabel.eventKeyDown += OnBindingKeyDown;
+			bindingLabel.eventMouseDown += OnBindingMouseDown;
 
 			nameLabel.text = description.DisplayName;
 			bindingLabel.text = input.ToLocalizedString("KEYNAME");
@@ -68,10 +70,20 @@ namespace AdditionalKeyBindings
 			bindingLabel.stringUserData = CategoryToGroupName[description.Category];
 		}
 
+		private void OnBindingMouseDown(UIComponent component, UIMouseEventParameter eventparam)
+		{
+			typeof (OptionsKeymappingPanel).GetMethod("OnBindingMouseDown", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(_optionsPanel, new object[] { component, eventparam });
+		}
+
+		private void OnBindingKeyDown(UIComponent component, UIKeyEventParameter eventparam)
+		{
+			typeof (OptionsKeymappingPanel).GetMethod("OnBindingKeyDown", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(_optionsPanel, new object[] { component, eventparam });
+		}
+
 		private static KeyBindingDescription ItemToDescription(UIComponent listItem)
 		{
 			var nameLabel = listItem.Find<UILabel>("Name");
-			var bindingLabel = listItem.Find<UILabel>("Binding");
+			var bindingLabel = listItem.Find<UITextComponent>("Binding");
 			var keyData = (SavedInputKey)bindingLabel.objectUserData;
 
 			return new KeyBindingDescription

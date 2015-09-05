@@ -5,7 +5,7 @@ using ColossalFramework.Plugins;
 
 namespace AdditionalKeyBindings
 {
-	public class DebugUtil
+	public static class DebugUtil
 	{
 		[Conditional("DEBUG")]
 		public static void WriteLine(String format, params object[] parameters)
@@ -16,15 +16,15 @@ namespace AdditionalKeyBindings
 		[Conditional("DEBUG")]
 		public static void WriteObject(object value)
 		{
-			DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, value != null ? value.ToString() : "null");
+			DebugOutputPanel.AddMessage(PluginManager.MessageType.Message, value?.ToString() ?? "null");
 		}
 
 		[Conditional("DEBUG")]
 		public static void CheckReference(string referenceName, object value)
 		{
 			WriteLine(value != null 
-				? String.Format("{0} type is {1}", referenceName, value.GetType().Name)
-				: String.Format("{0} is null", referenceName));
+				? $"{referenceName} type is {value.GetType().Name}"
+				: $"{referenceName} is null");
 		}
 
 		[Conditional("DEBUG")]
